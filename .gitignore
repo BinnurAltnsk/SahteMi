@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# ML Data & Artifacts (KVKK: ham verileri asla repoya koyma)
+ml/data/raw/*
+!ml/data/raw/.gitkeep
+ml/models/
+*.onnx
+*.pt
+*.bin
+*.safetensors
+
+# Node / Frontend
+web/node_modules/
+web/dist/
+web/.vite/
+
+# OS & Editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
