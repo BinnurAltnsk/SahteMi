@@ -1,0 +1,51 @@
+id,text_masked,label,channel,source,year
+scam26_001,"HGS gecis ihlali borcunuz bulunmaktadir. Icraya dusmeden odeme yapmak icin: https://hgs-odeme-tr.xyz/sorgula",scam,sms,public_pattern_2026,2026
+scam26_002,"PTT Kargo: Adres bilginiz eksik oldugu icin paketiniz teslim edilemedi. Guncellemek icin tiklayin: https://ptt-teslimat-bilgi.top/adres",scam,sms,public_pattern_2026,2026
+scam26_003,"Sayin vatandas, hakkinizda acilmis icra dosyasi mevcuttur. Uzlasma saglamak icin son gun bugun. Bilgi: [TELEFON]",scam,sms,public_pattern_2026,2026
+scam26_004,"e-Devlet uzerinden vergi iadeniz onaylanmistir. 4.850 TL iadenizi hesabiniza aktarmak icin giris yapin: https://edevlet-iade-sorgu.com",scam,sms,public_pattern_2026,2026
+scam26_005,"Ziraat Bankasi hesabinizda supheli islem tespit edildi. Hesabinizin bloke olmamasi icin hemen dogrulayin: https://ziraat-guvenlik-onay.net",scam,sms,public_pattern_2026,2026
+scam26_006,"Merhaba, ilaninizdaki urunu Param Guvende ile satin aldim. Odeme onayini tamamlamak icin linke tiklayin: https://sahibinden-paramguvende-onay.shop/ilan",scam,whatsapp,public_pattern_2026,2026
+scam26_007,"Anne telefonum bozuldu yeni numaram bu, acil 7.500 TL gondermen lazim aksam geri atacagim. IBAN: [IBAN]",scam,whatsapp,public_pattern_2026,2026
+scam26_008,"Evden gunde 2 saat calisarak 3.000 TL kazanmak ister misiniz? Gorevleri tamamla aninda hesabina yatsin, Telegram grubumuza katil: https://t.me/kolaykazanc_gorev",scam,whatsapp,public_pattern_2026,2026
+scam26_009,"Tebrikler! Instagram cekilisimizden iPhone 16 kazandiniz. Kargo sigorta ucreti 490 TL odemek icin DM uzerinden IBAN isteyiniz.",scam,instagram,public_pattern_2026,2026
+scam26_010,"Aracinizin trafik cezasi odenmemistir. Yasal takip baslamadan %25 indirimli odemek icin: https://gib-ceza-sorgulama.xyz",scam,sms,public_pattern_2026,2026
+scam26_011,"Garanti BBVA kart puanlariniz bugun silinecektir! 2.400 TL degerindeki puaninizi nakde cevirmek icin: https://garanti-puan-cevir.info",scam,sms,public_pattern_2026,2026
+scam26_012,"Dolap uygulamasindan aliciniz odeme yapti. Parayi hesabiniza cekmek icin kart bilgilerinizi onaylayin: https://dolap-odeme-al.online/onay",scam,classifieds,public_pattern_2026,2026
+scam26_013,"UYAP Bilgilendirme: Adiniza acilan tazminat davasinin son odeme gunudur. Dosya kapatma icin avukatimizla iletisime gecin: [TELEFON]",scam,sms,public_pattern_2026,2026
+scam26_014,"Kargonuz gumrukte takildi. 185 TL gumruk vergisini 24 saat icinde odemezseniz iade edilecektir: https://gumruk-ptt-odeme.site",scam,sms,public_pattern_2026,2026
+scam26_015,"Selam, ben finans danismaniyim. Borsa ve kripto yapay zeka botumuzla aylik %40 garantili getiri sagliyoruz. Gruba katil: https://yatirim-vip-sinyal.xyz",scam,whatsapp,public_pattern_2026,2026
+scam26_016,"Netflix aboneliginiz odeme hatasi nedeniyle askiya alindi. Hesabinizi kurtarmak icin kartinizi guncelleyin: https://netflix-tr-yenileme.com",scam,sms,public_pattern_2026,2026
+scam26_017,"MNG Kargo: Paketiniz subede bekliyor, adres dogrulamasi yapilmazsa iade olacak: https://mng-adres-dogrula.click",scam,sms,public_pattern_2026,2026
+scam26_018,"Akbank mobil bankacilik sifrenizin suresi doldu. Kesintisiz kullanim icin yenileyin: https://akbank-sifre-yenile.org",scam,sms,public_pattern_2026,2026
+scam26_019,"A101 15. yil ozel 5.000 TL alisveris ceki kazandiniz! Hemen teslim almak icin formu doldurun: https://a101-hediye-ceki.buzz",scam,whatsapp,public_pattern_2026,2026
+scam26_020,"Merhaba, urununuzu begendim ama kurye ile aldiracagim. Kurye odeme linkini gonderiyorum, kartinizi girip parayi alabilirsiniz: https://yurtici-kurye-tahsilat.net",scam,classifieds,public_pattern_2026,2026
+scam26_021,"Elektrik faturaniz odenmedigi icin 2 saat icinde kesinti yapilacaktir. Hemen odeme yapin: https://ckbogazici-fatura-ode.xyz",scam,sms,public_pattern_2026,2026
+scam26_022,"Turk Telekom hattinizdan yuksek tutarli harcama tespit edildi. Iptal etmek icin hemen tiklayin: https://turktelekom-iptal-merkezi.top",scam,sms,public_pattern_2026,2026
+scam26_023,"Hesabiniz telif hakki ihlali nedeniyle 24 saat icinde kapatilacaktir. Itiraz formu icin tiklayin: https://instagram-copyright-appeal-tr.com",scam,instagram,public_pattern_2026,2026
+scam26_024,"Devlet destekli 10.000 TL sosyal yardim basvurunuz onaylandi. IBAN bilgilerinizi girmek icin: https://aile-sosyal-destek-basvuru.xyz",scam,sms,public_pattern_2026,2026
+scam26_025,"Kuzeninim ben, acil hastaneye gitmem gerekti kartim limit dolu. 3.500 TL atabilir misin yarin oglen gonderirim.",scam,whatsapp,public_pattern_2026,2026
+norm26_001,"Yarin saat 14:00'te toplanti odasinda bulusuyoruz, sunumu drive'a yukledim.",normal,whatsapp,public_pattern_2026,2026
+norm26_002,"Yurtici Kargo: 482910384721 takip numarali gonderiniz bugun dagitima cikmistir. Teslimat kodunuz: 4829.",normal,sms,public_pattern_2026,2026
+norm26_003,"Akbank 3D Secure: 1.240,00 TL tutarindaki alisverisiniz icin tek kullanimlik sifreniz 649201. Bu sifreyi kimseyle paylasmayiniz.",normal,sms,public_pattern_2026,2026
+norm26_004,"Aksam eve gelirken ekmek ve sut alabilir misin? Ben biraz gec cikacagim.",normal,whatsapp,public_pattern_2026,2026
+norm26_005,"MHRS Randevu Hatirlatma: 28.11.2026 saat 10:30 tarihinde Goz Hastaliklari polikliniginde randevunuz bulunmaktadir.",normal,sms,public_pattern_2026,2026
+norm26_006,"Merhaba, ilaninizdaki bisiklet hala satilik mi? Hafta sonu gelip gorebilir miyim?",normal,classifieds,public_pattern_2026,2026
+norm26_007,"Ziraat Bankasi: 1234 ile biten kartinizla 320,50 TL tutarinda harcama yapilmistir.",normal,sms,public_pattern_2026,2026
+norm26_008,"Ders notlarini gruba attim, vize sinavi sali gunu saat 10'da B blokta olacakmis.",normal,whatsapp,public_pattern_2026,2026
+norm26_009,"Trendyol Express: Siparisiniz teslim edilmistir. Bizi tercih ettiginiz icin tesekkur ederiz.",normal,sms,public_pattern_2026,2026
+norm26_010,"Kanka aksam halisaha var mi yoksa iptal mi oldu? Ona gore plan yapacagim.",normal,whatsapp,public_pattern_2026,2026
+norm26_011,"Garanti BBVA: Hesabiniza 2.500,00 TL FAST transferi gerceklesmistir.",normal,sms,public_pattern_2026,2026
+norm26_012,"Iyi gunler, urunun son fiyati nedir? Elden teslim alabilirim Kadikoy'deyim.",normal,classifieds,public_pattern_2026,2026
+norm26_013,"Hava bugun cok soguk cikarken montunu giymeyi unutma.",normal,whatsapp,public_pattern_2026,2026
+norm26_014,"ISKI Bilgilendirme: Abone numaraniza ait Kasim 2026 donemi su faturaniz 245,00 TL olarak olusturulmustur. Son odeme tarihi 05.12.2026.",normal,sms,public_pattern_2026,2026
+norm26_015,"GitHub PR'ini inceledim, iki ufak yorum biraktim bakinca haber verirsin.",normal,whatsapp,public_pattern_2026,2026
+norm26_016,"Turkcell: Paketinizdeki internetin %80'ini kullandin. Kalan kullanimlarini uygulamadan kontrol edebilirsin.",normal,sms,public_pattern_2026,2026
+norm26_017,"Cumartesi gunu kahve icelim mi? Uzun zamandir gorusmedik.",normal,instagram,public_pattern_2026,2026
+norm26_018,"E-Nabiz: Tahlil sonuclariniz sisteme yuklenmistir. Resmi uygulama uzerinden goruntuleyebilirsiniz.",normal,sms,public_pattern_2026,2026
+norm26_019,"Siparisiniz hazirlaniyor, kurye yola ciktiginda tekrar bilgilendirme yapilacaktir.",normal,sms,public_pattern_2026,2026
+norm26_020,"Staj raporunu teslim ettim, hoca haftaya geri donus yapacagini soyledi.",normal,whatsapp,public_pattern_2026,2026
+norm26_021,"PTT Kargo: Gonderiniz teslim edilmek uzere dagitim merkezine ulasmistir.",normal,sms,public_pattern_2026,2026
+norm26_022,"Merhaba, bu fotograf hangi sehirde cekildi cok guzel cikmis!",normal,instagram,public_pattern_2026,2026
+norm26_023,"Kredi karti ekstreniz olusturulmustur. Minimum odeme tutarinizi mobil bankaciliktan inceleyebilirsiniz.",normal,sms,public_pattern_2026,2026
+norm26_024,"Yarin sabah 8 trenine bilet aldim, istasyonda gorusuruz.",normal,whatsapp,public_pattern_2026,2026
+norm26_025,"Urunu elden teslim aldim cok tesekkurler, sorunsuz calisiyor.",normal,classifieds,public_pattern_2026,2026

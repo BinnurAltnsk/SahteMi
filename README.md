@@ -76,13 +76,15 @@ ruff check .
 pytest -v
 ```
 
-## Değerlendirme Metrikleri *(Güncellenecek)*
+## Değerlendirme Metrikleri
 
-| Model / Aşama | Rastgele Ayrım F1 | Zamana Göre Ayrım (2026) F1 | Yanlış Alarm Oranı | p95 Gecikme |
+| Model / Aşama | Rastgele Ayrım (2021) F1 | Zamana Göre Ayrım (2026) F1 | Yanlış Alarm (2026 FPR) | p95 Gecikme |
 |---|---:|---:|---:|---:|
-| TF-IDF + Lojistik Regresyon (Baseline) | — | — | — | — |
+| TF-IDF + Lojistik Regresyon (Baseline) | %98.9 | **%81.6** (-17.3 puan) | %16.0 (2021'de %0.7) | — |
 | BERTurk Fine-Tuned (ONNX int8) | — | — | — | — |
 | Hibrit Ajan (BERTurk + URL/Domain + LLM) | — | — | — | — |
+
+> Detaylı analiz: [01_eda_report.md](ml/notebooks/01_eda_report.md) · [02_baseline_eval.md](ml/notebooks/02_baseline_eval.md)
 
 ## Yol Haritası
 
