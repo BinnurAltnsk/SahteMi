@@ -27,7 +27,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["api*", "ingest*", "bot*"]
+include = ["api*", "ml*", "ingest*", "bot*"]
 
 [tool.ruff]
 target-version = "py311"
