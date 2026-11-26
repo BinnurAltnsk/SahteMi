@@ -7,7 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.core.config import get_settings
 from api.core.logging import setup_logging
-from api.routers import analyze, health
+from api.db.session import close_db, init_db
+from api.routers import analyze, health, threats
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +18,9 @@ async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     settings = get_settings()
     setup_logging(settings.log_level)
     logger.info("Starting %s (%s)", settings.app_name, settings.app_env)
+    await init_db()
     yield
+    await close_db()
     logger.info("Shutting down %s", settings.app_name)
 
 
@@ -40,6 +43,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health.router)
     app.include_router(analyze.router)
+    app.include_router(threats.router)
     return app
 
 
