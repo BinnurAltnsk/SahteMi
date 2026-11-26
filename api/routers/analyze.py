@@ -1,26 +1,16 @@
-import re
-
 from fastapi import APIRouter
 
-from api.schemas.analyze import AnalyzeRequest, AnalyzeResponse, RiskLevel
+from api.schemas.analyze import AnalyzeRequest, AnalyzeResponse
+from api.tools.rules import analyze_with_rules
 
 router = APIRouter(prefix="/api/v1", tags=["analyze"])
-
-URL_PATTERN = re.compile(r"https?://[^\s<>\"']+|www\.[^\s<>\"']+", re.IGNORECASE)
 
 
 @router.post("/analyze", response_model=AnalyzeResponse)
 async def analyze_message(payload: AnalyzeRequest) -> AnalyzeResponse:
-    """Mesaj ve URL analizi için temel uç nokta (Gün 1 iskeleti).
+    """Mesaj ve URL analizi uç noktası.
 
-    Hafta 1-2'de kural motoru, ML sınıflandırıcı, tehdit istihbaratı ve
-    LLM ajan katmanı bu uç noktaya bağlanacaktır.
+    Alan adı / marka taklidi analizi ile Türkçe sosyal mühendislik
+    kurallarını birleştirerek risk skoru ve gerekçeli özet döndürür.
     """
-    urls = URL_PATTERN.findall(payload.text)
-    return AnalyzeResponse(
-        risk_level=RiskLevel.SAFE,
-        risk_score=0.0,
-        summary="Temel analiz servisi aktif. Kural motoru ve ML sınıflandırıcı henüz bağlı değil.",
-        signals=[],
-        extracted_urls=urls,
-    )
+    return analyze_with_rules(payload.text, channel=payload.channel)

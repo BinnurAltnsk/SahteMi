@@ -78,13 +78,16 @@ pytest -v
 
 ## Değerlendirme Metrikleri
 
-| Model / Aşama | Rastgele Ayrım (2021) F1 | Zamana Göre Ayrım (2026) F1 | Yanlış Alarm (2026 FPR) | p95 Gecikme |
+| Model / Aşama | Rastgele Ayrım (2021) F1 | Zamana Göre Ayrım (2026 Seed) F1 | Yanlış Alarm (2026 FPR) | p95 Gecikme |
 |---|---:|---:|---:|---:|
 | TF-IDF + Lojistik Regresyon (Baseline) | %98.9 | **%81.6** (-17.3 puan) | %16.0 (2021'de %0.7) | — |
+| Kural + Alan Adı Motoru (v1) | — | **%100.0*** *(bilinen 2026 kalıpları)* | %0.0* | — |
 | BERTurk Fine-Tuned (ONNX int8) | — | — | — | — |
 | Hibrit Ajan (BERTurk + URL/Domain + LLM) | — | — | — | — |
 
-> Detaylı analiz: [01_eda_report.md](ml/notebooks/01_eda_report.md) · [02_baseline_eval.md](ml/notebooks/02_baseline_eval.md)
+*\*Not: Kural motoru bilinen 2026 kalıplarını (n=50 seed) kapsar; gerçek genelleme performansı henüz görülmemiş topluluk örnekleri üzerinde ölçülecektir.*
+
+> Detaylı analiz: [01_eda_report.md](ml/notebooks/01_eda_report.md) · [02_baseline_eval.md](ml/notebooks/02_baseline_eval.md) · [03_rules_eval.md](ml/notebooks/03_rules_eval.md)
 
 ## Yol Haritası
 
