@@ -97,6 +97,21 @@ async def analyze_message_handler(update: Update, context: ContextTypes.DEFAULT_
         return
 
     raw_text = message.text or message.caption or ""
+    stripped = raw_text.strip()
+
+    # Başında boşlukla yapıştırılan komutları (ör. " /istatistik") doğru işleyiciye yönlendir
+    if stripped.startswith("/"):
+        cmd = stripped.split(maxsplit=1)[0].lstrip("/").split("@", maxsplit=1)[0].lower()
+        if cmd == "start":
+            await start_command(update, context)
+            return
+        if cmd in {"help", "yardim", "yardım"}:
+            await help_command(update, context)
+            return
+        if cmd in {"stats", "istatistik"}:
+            await stats_command(update, context)
+            return
+
     channel, text = extract_channel_and_text(raw_text)
 
     if len(text) < MIN_TEXT_LENGTH:

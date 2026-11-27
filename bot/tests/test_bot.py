@@ -172,11 +172,15 @@ async def test_analyze_message_handler_flows() -> None:
     assert called_channel == Channel.SMS
     assert "ilk 4000 karakter" in long_msg.reply_text.call_args.args[0]
 
-    # 3. İstatistik komutu
-    stats_msg = SimpleNamespace(reply_text=AsyncMock())
-    stats_update = SimpleNamespace(message=stats_msg)
-    await stats_command(stats_update, context)
+    # 3. İstatistik komutu (başında boşlukla yapıştırılsa bile doğru yönlenmeli)
+    stats_msg = SimpleNamespace(text=" /istatistik", caption=None, reply_text=AsyncMock())
+    stats_update = SimpleNamespace(message=stats_msg, effective_chat=SimpleNamespace(id=1))
+    await analyze_message_handler(stats_update, context)
     assert "300" in stats_msg.reply_text.call_args.args[0]
+
+    stats_direct_msg = SimpleNamespace(reply_text=AsyncMock())
+    await stats_command(SimpleNamespace(message=stats_direct_msg), context)
+    assert "300" in stats_direct_msg.reply_text.call_args.args[0]
 
 
 def test_build_application_requires_token() -> None:
