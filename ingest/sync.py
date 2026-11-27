@@ -2,6 +2,7 @@
 
 Kullanım:
     python -m ingest.sync
+    python -m ingest.sync --source usom --limit 200
     python -m ingest.sync --source openphish --limit 200
 """
 
@@ -16,10 +17,11 @@ import httpx
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from api.core.config import get_settings
 from api.core.logging import setup_logging
 from api.db.models import ThreatIndicator
 from api.db.session import close_db, get_session_factory, init_db
-from ingest.feeds import RawThreatItem, fetch_openphish, fetch_urlhaus
+from ingest.feeds import RawThreatItem, fetch_openphish, fetch_urlhaus, fetch_usom
 
 logger = logging.getLogger(__name__)
 
@@ -72,6 +74,7 @@ async def upsert_threats(session: AsyncSession, items: list[RawThreatItem]) -> t
 
 
 async def run_sync(source: str = "all", limit: int | None = None) -> dict[str, tuple[int, int]]:
+    settings = get_settings()
     setup_logging("INFO")
     db_ok = await init_db()
     if not db_ok:
@@ -92,13 +95,31 @@ async def run_sync(source: str = "all", limit: int | None = None) -> dict[str, t
                 except Exception as exc:  # noqa: BLE001
                     logger.error("OpenPhish beslemesi alınamadı: %s", exc)
 
-            if source in {"all", "urlhaus"}:
+            if source in {"all", "usom"}:
                 try:
-                    uh_items = await fetch_urlhaus(client, limit=limit)
-                    tasks.append(("urlhaus", uh_items))
-                    logger.info("URLhaus beslemesinden %d kayıt alındı.", len(uh_items))
+                    usom_items = await fetch_usom(client, limit=limit)
+                    tasks.append(("usom", usom_items))
+                    logger.info("USOM/SGB beslemesinden %d kayıt alındı.", len(usom_items))
                 except Exception as exc:  # noqa: BLE001
-                    logger.error("URLhaus beslemesi alınamadı: %s", exc)
+                    logger.error("USOM/SGB beslemesi alınamadı: %s", exc)
+
+            if source in {"all", "urlhaus"}:
+                if not settings.urlhaus_auth_key.strip():
+                    logger.info(
+                        "URLhaus atlandı: URLHAUS_AUTH_KEY tanımlı değil "
+                        "(ücretsiz anahtar: https://auth.abuse.ch/)."
+                    )
+                else:
+                    try:
+                        uh_items = await fetch_urlhaus(
+                            client,
+                            auth_key=settings.urlhaus_auth_key,
+                            limit=limit,
+                        )
+                        tasks.append(("urlhaus", uh_items))
+                        logger.info("URLhaus beslemesinden %d kayıt alındı.", len(uh_items))
+                    except Exception as exc:  # noqa: BLE001
+                        logger.error("URLhaus beslemesi alınamadı: %s", exc)
 
         factory = get_session_factory()
         async with factory() as session:
@@ -116,7 +137,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Tehdit istihbaratı beslemelerini senkronize et.")
     parser.add_argument(
         "--source",
-        choices=["all", "openphish", "urlhaus"],
+        choices=["all", "openphish", "usom", "urlhaus"],
         default="all",
         help="Çekilecek besleme kaynağı",
     )

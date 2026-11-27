@@ -1,9 +1,10 @@
+import httpx
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from api.db.models import Base
 from api.tools.url_intel import check_urls_in_db, get_threat_stats
-from ingest.feeds import parse_plain_url_feed
+from ingest.feeds import fetch_urlhaus, parse_plain_url_feed, parse_usom_response
 from ingest.sync import upsert_threats
 
 
@@ -63,3 +64,50 @@ async def test_upsert_and_lookup_url_and_host() -> None:
         assert stats["total"] == 2
 
     await engine.dispose()
+
+
+def test_parse_usom_response_extracts_domains_and_phishing_type() -> None:
+    payload = {
+        "totalCount": 2,
+        "page": 1,
+        "pageCount": 1,
+        "models": [
+            {
+                "id": 101,
+                "url": "sahte-edevlet-giris.xyz",
+                "type": "domain",
+                "desc": "Bankacılık - Oltalama",
+                "connectiontype": "Oltalama",
+            },
+            {
+                "id": 102,
+                "url": "https://zararli-apk.top/indir.apk/",
+                "type": "url",
+                "desc": "Zararlı Yazılım",
+            },
+            {
+                "id": 103,
+                "url": "sahte-edevlet-giris.xyz",
+                "type": "domain",
+                "desc": "Oltalama",
+            },
+        ],
+    }
+    items = parse_usom_response(payload)
+    assert len(items) == 2
+    assert items[0].source == "usom"
+    assert items[0].indicator == "sahte-edevlet-giris.xyz"
+    assert items[0].indicator_type == "domain"
+    assert items[0].host == "sahte-edevlet-giris.xyz"
+    assert items[0].threat_type == "phishing"
+    assert items[1].threat_type == "malware"
+
+
+@pytest.mark.asyncio
+async def test_fetch_urlhaus_skips_when_auth_key_missing() -> None:
+    def fail_if_called(_request: httpx.Request) -> httpx.Response:
+        raise AssertionError("auth_key yokken HTTP isteği yapılmamalı")
+
+    async with httpx.AsyncClient(transport=httpx.MockTransport(fail_if_called)) as client:
+        items = await fetch_urlhaus(client, auth_key="")
+        assert items == []

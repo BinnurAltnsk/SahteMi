@@ -23,6 +23,9 @@ class Settings(BaseSettings):
     llm_model: str = "deepseek-chat"
 
     google_safe_browsing_api_key: str = ""
+    urlhaus_auth_key: str = ""
+    enable_rdap_lookup: bool = True
+    rdap_timeout_seconds: float = 2.5
     telegram_bot_token: str = ""
 
 
