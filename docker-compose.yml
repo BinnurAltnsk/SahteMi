@@ -34,5 +34,21 @@ services:
       db:
         condition: service_healthy
 
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sahtemi-bot
+    restart: unless-stopped
+    profiles: ["bot"]
+    command: ["python", "-m", "bot.main"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      API_BASE_URL: http://api:8000
+    depends_on:
+      - api
+
 volumes:
   postgres_data:

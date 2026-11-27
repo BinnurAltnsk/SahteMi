@@ -8,6 +8,7 @@ WORKDIR /app
 COPY pyproject.toml README.md ./
 COPY api ./api
 COPY ingest ./ingest
+COPY bot ./bot
 
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir .

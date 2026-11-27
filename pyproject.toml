@@ -17,6 +17,7 @@ dependencies = [
     "sqlalchemy[asyncio]>=2.0.36",
     "asyncpg>=0.30.0",
     "openai>=1.55.0",
+    "python-telegram-bot>=21.0",
 ]
 
 [project.optional-dependencies]
@@ -42,6 +43,6 @@ line-length = 100
 select = ["E", "F", "I", "UP", "B", "SIM"]
 
 [tool.pytest.ini_options]
-testpaths = ["api/tests"]
+testpaths = ["api/tests", "bot/tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
